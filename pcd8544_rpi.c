@@ -108,8 +108,10 @@ int main (void)
 	  
 	  // uptime
 	  char uptimeInfo[15];
-	  unsigned long uptime = sys_info.uptime / 60;
-	  sprintf(uptimeInfo, "Uptime %ld min.", uptime);
+	  unsigned long min = sys_info.uptime % (60*60) / 60;
+	  unsigned long hour = sys_info.uptime % (24*60*60) / (60*60);
+	  unsigned long day = sys_info.uptime / (24*60*60);
+	  sprintf(uptimeInfo, "Up:%ldd %ldh %ldm.", day, hour, min);
 	  
 	  // cpu info
 	  char cpuInfo[10]; 
@@ -147,7 +149,7 @@ int main (void)
 	  // build screen
 	  //LCDdrawstring(0, 0, "Raspberry Pi:");
 
-	  LCDdrawstring(0, 1, "5iPi@taobao");
+	  LCDdrawstring(0, 1, "PP's Pi");
 	  LCDdrawline(0, 10, 83, 10, BLACK);
 	  LCDdrawstring(0, 12, uptimeInfo);
 	  LCDdrawstring(0, 21, cpuInfo);
