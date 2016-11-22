@@ -1,0 +1,26 @@
+## RASPBERRY PI VIỆT NAM
+## Website: http://raspberrypi.vn
+## Hotline: 0978.281.388 - Email: info@raspberrypi.vn
+## Fanpage: http://raspberrypi.vn/s/fb
+## Group: http://raspberrypi.vn/s/groupfb
+## HƯỚNG DẪN CÀI ĐẶT DRIVER VÀ HIỂN THỊ THÔNG TIN CPUINFO - VERSION 1
+
+Bước 1: Cài đặt wiringPi
+
+(Ngu?n: http://wiringpi.com/wiringpi-and-the-raspberry-pi-compute-board/)
+
+cd ~
+git clone git://git.drogon.net/wiringPi
+cd wiringPi
+./build
+
+
+
+Bước 2: Biên dịch mã nguồn
+cc -o pcd8544_rpi pcd8544_rpi.c PCD8544.c  -L/usr/local/lib -lwiringPi
+
+
+Bước 3: Chạy cài đặt
+
+sudo ./pcd8544_rpi
+
